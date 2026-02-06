@@ -38,12 +38,10 @@ img{
 button{
     font-size:25px;
     padding:15px 30px;
-    margin:10px;
     border:none;
     border-radius:15px;
     cursor:pointer;
-    transition:0.3s;
-    white-space: nowrap;
+    white-space:nowrap;
 }
 
 .yes{
@@ -54,7 +52,7 @@ button{
 .no{
     background:#ff4d4d;
     color:white;
-    min-width:120px;
+    min-width:180px;
 }
 </style>
 
@@ -75,43 +73,28 @@ button{
 
 </div>
 
-<!-- FIREBASE -->
 <script type="module">
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+/* ===== FIREBASE IMPORT ===== */
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js";
 
-/* ====== PUNE CONFIGUL TAU AICI ====== */
-const firebaseConfig = <script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+/* ===== FIREBASE CONFIG (AL TAU) ===== */
+const firebaseConfig = {
+  apiKey: "AIzaSyAuWWPvJeHb-gVDrrqP0MWjsax355ziDtk",
+  authDomain: "viki-8df39.firebaseapp.com",
+  projectId: "viki-8df39",
+  storageBucket: "viki-8df39.firebasestorage.app",
+  messagingSenderId: "931316189166",
+  appId: "1:931316189166:web:3adc084105079a936630ff",
+  measurementId: "G-BGXMNV13RQ"
+};
 
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyAuWWPvJeHb-gVDrrqP0MWjsax355ziDtk",
-    authDomain: "viki-8df39.firebaseapp.com",
-    projectId: "viki-8df39",
-    storageBucket: "viki-8df39.firebasestorage.app",
-    messagingSenderId: "931316189166",
-    appId: "1:931316189166:web:3adc084105079a936630ff",
-    measurementId: "G-BGXMNV13RQ"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-</script>;
-
-/* ==================================== */
-
+/* ===== INIT FIREBASE ===== */
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-/* ==== SITE CODE ==== */
+/* ===== SITE CODE ===== */
 
 let yesBtn = document.getElementById("yesBtn");
 let noBtn = document.getElementById("noBtn");
@@ -120,7 +103,6 @@ let title = document.getElementById("title");
 
 let yesSize = 1;
 
-// FRAZE NU
 let noTexts = [
     "sei sicura?",
     "amoreeeee?",
@@ -133,22 +115,37 @@ let noTexts = [
 
 let textIndex = 0;
 
-// CLICK NU
-noBtn.addEventListener("click", ()=>{
+/* ===== SAVE FUNCTION ===== */
+async function saveAnswer(answer){
+    try{
+        await addDoc(collection(db,"answers"),{
+            answer: answer,
+            time: new Date().toISOString()
+        });
+    }catch(e){
+        console.log(e);
+    }
+}
+
+/* ===== CLICK NU ===== */
+noBtn.addEventListener("click", async ()=>{
 
     yesSize += 0.5;
     yesBtn.style.transform = "scale(" + yesSize + ")";
-
-
 
     if(textIndex < noTexts.length){
         noBtn.innerText = noTexts[textIndex];
         textIndex++;
     }
+
+    await saveAnswer("NU");
 });
 
-// CLICK DA
-yesBtn.addEventListener("click", ()=>{
+/* ===== CLICK DA ===== */
+yesBtn.addEventListener("click", async ()=>{
+
+    await saveAnswer("DA");
+
     img.src = "img2.jpg";
     title.innerText = "LETSSSSSSS GOOOOOOOOOO 💘💘";
 
@@ -159,12 +156,3 @@ yesBtn.addEventListener("click", ()=>{
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-

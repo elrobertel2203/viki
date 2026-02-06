@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Edit</title>
+
+    <style>
+        body {
+            margin: 0;
+            background: black;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out, transform 6s ease-in-out;
+        }
+
+            .slide.active {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+
+        .text {
+            position: absolute;
+            bottom: 40px;
+            width: 100%;
+            text-align: center;
+            color: white;
+            font-size: 40px;
+            text-shadow: 0 0 20px black;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <img class="slide active" src="img1.jpg">
+    <img class="slide" src="img2.jpg">
+    <img class="slide" src="img3.jpg">
+    <img class="slide" src="img4.jpg">
+
+    <div class="text">My Edit</div>
+
+    <script>
+        let slides = document.querySelectorAll(".slide");
+        let index = 0;
+
+        setInterval(()=>{
+        slides[index].classList.remove("active");
+        index = (index + 1) % slides.length;
+        slides[index].classList.add("active");
+        },3000);
+    </script>
+
+</body>
+</html>

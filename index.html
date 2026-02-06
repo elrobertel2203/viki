@@ -54,7 +54,7 @@ button{
 .no{
     background:#ff4d4d;
     color:white;
-    min-width:220px;
+    min-width:120px;
 }
 </style>
 
@@ -101,8 +101,8 @@ let textIndex = 0;
 noBtn.addEventListener("click", ()=>{
 
     yesSize += 0.6;
-    yesBtn.style.fontSize = (25 + yesSize * 8) + "px";
-yesBtn.style.padding = (15 + yesSize * 3) + "px " + (30 + yesSize * 6) + "px";
+    yesBtn.style.transform = "scale(" + yesSize + ")";
+
 
 
     if(textIndex < noTexts.length){
@@ -123,5 +123,6 @@ yesBtn.addEventListener("click", ()=>{
 
 </body>
 </html>
+
 
 

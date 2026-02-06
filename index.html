@@ -29,6 +29,10 @@ img{
 
 .buttons{
     margin-top:30px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:15px;
 }
 
 button{
@@ -39,6 +43,7 @@ button{
     border-radius:15px;
     cursor:pointer;
     transition:0.3s;
+    white-space: nowrap;
 }
 
 .yes{
@@ -49,6 +54,7 @@ button{
 .no{
     background:#ff4d4d;
     color:white;
+    min-width:140px;
 }
 </style>
 
@@ -115,6 +121,4 @@ yesBtn.addEventListener("click", ()=>{
 
 </body>
 </html>
-
-
 

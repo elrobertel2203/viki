@@ -73,28 +73,8 @@ button{
 
 </div>
 
-<script type="module">
+<script>
 
-/* ===== FIREBASE IMPORT ===== */
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
-import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js";
-
-/* ===== FIREBASE CONFIG (AL TAU) ===== */
-const firebaseConfig = {
-  apiKey: "AIzaSyAuWWPvJeHb-gVDrrqP0MWjsax355ziDtk",
-  authDomain: "viki-8df39.firebaseapp.com",
-  projectId: "viki-8df39",
-  storageBucket: "viki-8df39.firebasestorage.app",
-  messagingSenderId: "931316189166",
-  appId: "1:931316189166:web:3adc084105079a936630ff",
-  measurementId: "G-BGXMNV13RQ"
-};
-
-/* ===== INIT FIREBASE ===== */
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-/* ===== SITE CODE ===== */
 
 let yesBtn = document.getElementById("yesBtn");
 let noBtn = document.getElementById("noBtn");
@@ -156,3 +136,4 @@ yesBtn.addEventListener("click", async ()=>{
 
 </body>
 </html>
+

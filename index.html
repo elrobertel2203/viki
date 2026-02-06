@@ -11,7 +11,6 @@ body{
     background:#ffdde1;
     font-family:Arial, sans-serif;
     text-align:center;
-    overflow:hidden;
 }
 
 .container{
@@ -42,71 +41,78 @@ button{
     transition:0.3s;
 }
 
-.da{
+.yes{
     background:#4CAF50;
     color:white;
 }
 
-.nu{
+.no{
     background:#ff4d4d;
     color:white;
-    position:relative;
 }
 </style>
+
 </head>
 
 <body>
 
 <div class="container">
 
-<h1 id="title">Vrei să fii Valentinul meu?</h1>
+<h1 id="title">Vrei sa fii Valentine-ul meu?</h1>
 
 <img id="mainImg" src="img1.jpg">
 
 <div class="buttons">
-<button class="da" id="daBtn">DA</button>
-<button class="nu" id="nuBtn">NU</button>
+<button class="yes" id="yesBtn">DA</button>
+<button class="no" id="noBtn">NU</button>
 </div>
 
 </div>
 
 <script>
-let nuTexts = [
-    "Are you sure?",
-    "Really sure?",
-    "Think again...",
-    "Last chance...",
-    "Pleaseee 🥺",
-    "Don't do this 😭",
-    "Say YES ❤️"
+
+let yesBtn = document.getElementById("yesBtn");
+let noBtn = document.getElementById("noBtn");
+let img = document.getElementById("mainImg");
+let title = document.getElementById("title");
+
+let yesSize = 1;
+
+// FRAZE NU
+let noTexts = [
+    "Esti sigur?",
+    "Chiar sigur?",
+    "Mai gandeste-te...",
+    "Ultima sansa...",
+    "Te roggg 🥺",
+    "Nu face asta 😭",
+    "Apasa DA ❤️"
 ];
 
 let textIndex = 0;
 
-nuBtn.addEventListener("click", ()=>{
+// CLICK NU
+noBtn.addEventListener("click", ()=>{
 
-    daSize += 0.7;
-    daBtn.style.transform = "scale(" + daSize + ")";
+    yesSize += 0.7;
+    yesBtn.style.transform = "scale(" + yesSize + ")";
 
-    if(textIndex < nuTexts.length){
-        nuBtn.innerText = nuTexts[textIndex];
+    if(textIndex < noTexts.length){
+        noBtn.innerText = noTexts[textIndex];
         textIndex++;
     }
 });
 
-});
-
-daBtn.addEventListener("click", ()=>{
+// CLICK DA
+yesBtn.addEventListener("click", ()=>{
     img.src = "img2.jpg";
-    title.innerText = "LETSSSSSSS GOOOOOOOOOOOOOO 💘💘";
+    title.innerText = "LETSSSSSSS GOOOOOOOOOO 💘💘";
 
     document.querySelector(".buttons").style.display="none";
 });
+
 </script>
 
 </body>
 </html>
-
-
-
 

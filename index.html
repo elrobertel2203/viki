@@ -42,12 +42,12 @@ button{
     transition:0.3s;
 }
 
-.yes{
+.da{
     background:#4CAF50;
     color:white;
 }
 
-.no{
+.nu{
     background:#ff4d4d;
     color:white;
     position:relative;
@@ -59,38 +59,38 @@ button{
 
 <div class="container">
 
-<h1 id="title">Will you be my Valentine?</h1>
+<h1 id="title">Vrei să fii Valentinul meu?</h1>
 
 <img id="mainImg" src="img1.jpg">
 
 <div class="buttons">
-<button class="yes" id="yesBtn">YES</button>
-<button class="no" id="noBtn">NO</button>
+<button class="da" id="daBtn">DA</button>
+<button class="nu" id="nuBtn">NU</button>
 </div>
 
 </div>
 
 <script>
-let yesBtn = document.getElementById("yesBtn");
-let noBtn = document.getElementById("noBtn");
+let yesBtn = document.getElementById("daBtn");
+let noBtn = document.getElementById("nuBtn");
 let img = document.getElementById("mainImg");
 let title = document.getElementById("title");
 
-let yesSize = 1;
+let daSize = 1;
 
-noBtn.addEventListener("click", ()=>{
-    yesSize += 0.2;
-    yesBtn.style.transform = "scale(" + yesSize + ")";
+nuBtn.addEventListener("click", ()=>{
+    daSize += 0.2;
+    daBtn.style.transform = "scale(" + daSize + ")";
 
     let x = Math.random()*300 - 150;
     let y = Math.random()*300 - 150;
 
-    noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    nuBtn.style.transform = `translate(${x}px, ${y}px)`;
 });
 
-yesBtn.addEventListener("click", ()=>{
+daBtn.addEventListener("click", ()=>{
     img.src = "img2.jpg";
-    title.innerText = "YAYYYYY ❤️";
+    title.innerText = "LETSSSSSSS GOOOOOOOOOOOOOO 💘💘";
 
     document.querySelector(".buttons").style.display="none";
 });
@@ -98,4 +98,5 @@ yesBtn.addEventListener("click", ()=>{
 
 </body>
 </html>
+
 
